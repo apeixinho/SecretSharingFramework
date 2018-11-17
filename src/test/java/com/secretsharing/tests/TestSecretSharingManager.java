@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  *
  * @author apeixinho
  */
-public class SecretSharingManagerTest {
+public class TestSecretSharingManager {
 
     @Rule
     public ExpectedException exceptions = ExpectedException.none();

@@ -124,6 +124,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+nbactions.xml
 
 ### Java ###
 # Compiled class file
