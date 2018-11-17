@@ -1,5 +1,4 @@
 ### Eclipse ###
-
 .metadata
 bin/
 tmp/
@@ -114,7 +113,6 @@ fabric.properties
 ### Intellij+all Patch ###
 # Ignores the whole idea folder
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
-
 .idea/
 
 ### NetBeans ###
@@ -125,6 +123,9 @@ dist/
 nbdist/
 .nb-gradle/
 nbactions.xml
+
+### Microsoft Code ###
+settings.json
 
 ### Java ###
 # Compiled class file
