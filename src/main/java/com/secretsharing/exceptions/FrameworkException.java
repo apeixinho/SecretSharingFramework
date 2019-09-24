@@ -27,6 +27,4 @@ public class FrameworkException extends RuntimeException {
     public FrameworkException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-
-//    public abstract StatusCode getErrorCode();
 }

@@ -13,7 +13,7 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class SecretSharingManagerImpl implements SecretSharingManager {
 
-    // a 2048 bit prime to use as the default modular arithmetic
+    // 2048 bit prime to use as the default modular arithmetic
     // this prime has to be greater than the secret
     private static final BigInteger DEFAULT_MOD_ARITH
             = new BigInteger("245720559113293755351195329167945826602678374596592470256185658746207"
@@ -46,15 +46,18 @@ public class SecretSharingManagerImpl implements SecretSharingManager {
             throw new FrameworkException("Secret Sharing splitSecret parameter 'secret' is greater than modular arithmetic value");
         }
 
-        //Initialization of polynomial coefficients and modular arithmetic.
+        // Initialization of polynomial coefficients and modular arithmetic
         BigInteger[] polynomialCoefficients = new BigInteger[k];
 
         for (int i = 0; i < k; i++) {
-            // coefficient for point x = 0 is the secret
+            // Coefficient for point x = 0 is "the secret"
             if (i == 0) {
                 polynomialCoefficients[i] = new BigInteger(secret.getBytes());
             } else {
-                // other coefficients are uniformly distributed 1536 bit primes
+                // BigInteger(int bitLength, int certainty, Random rnd)
+                // Constructs a randomly uniformly distributed positive BigInteger that is probably prime,
+                // with the specified bitLength.
+                // In this case coefficients are 1536 bit primes
                 polynomialCoefficients[i] = new BigInteger(1536, 1, new SecureRandom());
             }
         }
@@ -108,15 +111,18 @@ public class SecretSharingManagerImpl implements SecretSharingManager {
             throw new FrameworkException("Secret Sharing splitSecret parameter 'secret' is greater than modular arithmetic value");
         }
 
-        //Initialization of polynomial coefficients and modular arithmetic.
+        // Initialization of polynomial coefficients and modular arithmetic
         BigInteger[] polynomialCoefficients = new BigInteger[k];
 
         for (int i = 0; i < k; i++) {
-            // coefficient for point x = 0 is the secret
+            // Coefficient for point x = 0 is "the secret"
             if (i == 0) {
                 polynomialCoefficients[i] = new BigInteger(secret.getBytes());
             } else {
-                // other coefficients are uniformly distributed 1536 bit primes
+                // BigInteger(int bitLength, int certainty, Random rnd)
+                // Constructs a randomly uniformly distributed positive BigInteger that is probably prime,
+                // with the specified bitLength.
+                // In this case coefficients are 1536 bit primes
                 polynomialCoefficients[i] = new BigInteger(1536, 1, new SecureRandom());
             }
         }
@@ -167,8 +173,7 @@ public class SecretSharingManagerImpl implements SecretSharingManager {
         // construct sharesIndexes-Values pass by reference
         parseShares(shares, sharesIndexes, sharesValues);
 
-        BigInteger dividend = BigInteger.ONE, divider = BigInteger.ONE;
-        BigInteger partial = BigInteger.ZERO, partialMult = BigInteger.ONE;
+        BigInteger dividend, divider, partial, partialMult;
         BigInteger partialSecret = BigInteger.ZERO;
 
         for (int i = 0; i < t; i++) {
@@ -234,8 +239,7 @@ public class SecretSharingManagerImpl implements SecretSharingManager {
         // construct sharesIndexes-Values pass by reference
         parseShares(shares, sharesIndexes, sharesValues);
 
-        BigInteger dividend = BigInteger.ONE, divider = BigInteger.ONE;
-        BigInteger partial = BigInteger.ZERO, partialMult = BigInteger.ONE;
+        BigInteger dividend, divider, partial, partialMult;
         BigInteger partialSecret = BigInteger.ZERO;
 
         for (int i = 0; i < t; i++) {
